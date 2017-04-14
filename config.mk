@@ -12,15 +12,22 @@ PREFIX = /usr/local
 MANPREFIX = ${PREFIX}/share/man
 LIBPREFIX = ${PREFIX}/lib/surf
 
-X11INC = /usr/X11R6/include
-X11LIB = /usr/X11R6/lib
+WEBKIT2GTK_VERSION ?= 4.0
+GTK_VERSION        ?= 3.0
+GTHREAD_VERSION    ?= 2.0
 
-GTKINC = `$(PKG_CONFIG) --cflags gtk+-3.0 webkit2gtk-4.0`
-GTKLIB = `$(PKG_CONFIG) --libs gtk+-3.0 webkit2gtk-4.0`
+IMPORT_PACKAGES ?= \
+    x11 \
+    gtk+-$(GTK_VERSION) \
+    webkit2gtk-$(WEBKIT2GTK_VERSION) \
+    gthread-$(GTHREAD_VERSION)
+
+IMPORT_CFLAGS ?= `$(PKG_CONFIG) --cflags $(IMPORT_PACKAGES)`
+IMPORT_LIBS   ?= `$(PKG_CONFIG) --libs $(IMPORT_PACKAGES)`
 
 # includes and libs
-INCS = -I. -I/usr/include -I${X11INC} ${GTKINC}
-LIBS = -L/usr/lib -lc -L${X11LIB} -lX11 ${GTKLIB} -lgthread-2.0
+INCS = -I. $(IMPORT_CFLAGS)
+LIBS = -lc $(IMPORT_LIBS)
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" -DWEBEXTDIR=\"${LIBPREFIX}\" -D_DEFAULT_SOURCE
