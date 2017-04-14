@@ -43,19 +43,19 @@ dist: clean
 	@rm -rf surf-${VERSION}
 
 install: all
-	@echo installing executable file to ${DESTDIR}${PREFIX}/bin
-	@mkdir -p ${DESTDIR}${PREFIX}/bin
-	@cp -f surf ${DESTDIR}${PREFIX}/bin
-	@chmod 755 ${DESTDIR}${PREFIX}/bin/surf
-	@echo installing manual page to ${DESTDIR}${MANPREFIX}/man1
-	@mkdir -p ${DESTDIR}${MANPREFIX}/man1
-	@sed "s/VERSION/${VERSION}/g" < surf.1 > ${DESTDIR}${MANPREFIX}/man1/surf.1
-	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/surf.1
+	@echo installing executable file to ${DESTDIR}${BINDIR}
+	@mkdir -p ${DESTDIR}${BINDIR}
+	@cp -f surf ${DESTDIR}${BINDIR}
+	@chmod 755 ${DESTDIR}${BINDIR}/surf
+	@echo installing manual page to ${DESTDIR}${MAN1DIR}
+	@mkdir -p ${DESTDIR}${MAN1DIR}
+	@sed "s/VERSION/${VERSION}/g" < surf.1 > ${DESTDIR}${MAN1DIR}/surf.1
+	@chmod 644 ${DESTDIR}${MAN1DIR}/surf.1
 
 uninstall:
-	@echo removing executable file from ${DESTDIR}${PREFIX}/bin
-	@rm -f ${DESTDIR}${PREFIX}/bin/surf
-	@echo removing manual page from ${DESTDIR}${MANPREFIX}/man1
-	@rm -f ${DESTDIR}${MANPREFIX}/man1/surf.1
+	@echo removing executable file from ${DESTDIR}${BINDIR}
+	@rm -f ${DESTDIR}${BINDIR}/surf
+	@echo removing manual page from ${DESTDIR}${MAN1DIR}
+	@rm -f ${DESTDIR}${MAN1DIR}/surf.1
 
 .PHONY: all options clean dist install uninstall

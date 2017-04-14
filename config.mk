@@ -8,9 +8,12 @@ CC         ?= cc
 PKG_CONFIG ?= pkg-config
 
 # paths
-PREFIX = /usr/local
-MANPREFIX = ${PREFIX}/share/man
-LIBPREFIX = ${PREFIX}/lib/surf
+PREFIX     ?= /usr/local
+BINDIR     ?= $(PREFIX)/bin
+MANDIR     ?= $(PREFIX)/share/man
+MAN1DIR    ?= $(MANDIR)/man1
+LIBDIR     ?= $(PREFIX)/lib
+LIBPREFIX  ?= $(LIBDIR)/surf
 
 WEBKIT2GTK_VERSION ?= 4.0
 GTK_VERSION        ?= 3.0
