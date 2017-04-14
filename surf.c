@@ -53,8 +53,7 @@ enum {
 	OnMedia = WEBKIT_HIT_TEST_RESULT_CONTEXT_MEDIA,
 	OnEdit  = WEBKIT_HIT_TEST_RESULT_CONTEXT_EDITABLE,
 	OnBar   = WEBKIT_HIT_TEST_RESULT_CONTEXT_SCROLLBAR,
-	OnSel   = WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION,
-	OnAny   = OnDoc | OnLink | OnImg | OnMedia | OnEdit | OnBar | OnSel,
+	OnAny   = OnDoc | OnLink | OnImg | OnMedia | OnEdit | OnBar,
 };
 
 typedef enum {
