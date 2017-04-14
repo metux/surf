@@ -1,0 +1,4 @@
+/config.h
+/surf
+*.o
+*.a
