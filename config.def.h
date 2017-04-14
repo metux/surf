@@ -1,10 +1,10 @@
 /* modifier 0 means no modifier */
 static int surfuseragent    = 1;  /* Append Surf version to default WebKit user agent */
-static char *fulluseragent  = ""; /* Or override the whole user agent string */
-static char *scriptfile     = "~/.surf/script.js";
-static char *styledir       = "~/.surf/styles/";
-static char *cachedir       = "~/.surf/cache/";
-static char *cookiefile     = "~/.surf/cookies.txt";
+static const char *fulluseragent  = ""; /* Or override the whole user agent string */
+static const char *scriptfile     = "~/.surf/script.js";
+static const char *styledir       = "~/.surf/styles/";
+static const char *cachedir       = "~/.surf/cache/";
+static const char *cookiefile     = "~/.surf/cookies.txt";
 
 /* Webkit default features */
 static Parameter defconfig[ParameterLast] = {
