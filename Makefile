@@ -6,7 +6,13 @@ include config.mk
 SRC = surf.c
 OBJ = ${SRC:.c=.o}
 
-all: options surf
+all: check-libs options surf
+
+check-libs:
+	@if ! $(PKG_CONFIG) --exists $(IMPORT_PACKAGES) ; then \
+            echo "failed importing via pkg-config: $(IMPORT_PACKAGES)" >&2 ; \
+            exit 42; \
+        fi
 
 options:
 	@echo surf build options:
